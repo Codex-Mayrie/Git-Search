@@ -3,7 +3,15 @@ ul{
   padding:0;
   width: 70px;
   list-style-type:none;
+  background-color: white;
 }
 li a{
   display: block;
+  color: blue;
+  padding: 10px;
+  text-decoration: none;
+}
+li a:hover{
+  background-color: white;
+  color: blue;
 }
