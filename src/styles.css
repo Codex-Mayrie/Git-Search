@@ -1,1 +1,4 @@
-@import "~bootstrap/css/dist/css/bootstrap.min.css"
+@import "~bootstrap/dist/css/bootstrap.css";
+body{
+  scroll-behavior: smooth;
+}
