@@ -10,9 +10,9 @@ text-align: center;
   
 }
 .navbar{
-  position: fixed;
-  overflow: hidden;
+ overflow: hidden;
 }
+
 li a{
   font-size:30px;
   text-decoration: none;

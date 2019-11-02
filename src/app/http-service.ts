@@ -7,6 +7,7 @@ import { environment } from "src/environments/environment";
   providedIn: 'root'
 })
 export class HttpService {
+
   user: User;
   constructor(private http: HttpClient) {}
   userInfo():Promise<any> {
@@ -36,6 +37,46 @@ export class HttpService {
     getUserRepo(): Promise<any> {
       const promise = new Promise((resolve, reject) => {
         const apiUrl = `https://api.github.com/users/shee1998/repos?access_token=${environment.accessToken}`;
+        this.http
+          .get<any>(apiUrl)
+          .toPromise()
+          .then(res => {
+            resolve(res);
+          })
+          .catch(error => reject(error));
+      });
+      return promise;
+    }
+    searchByUser(data: string) {
+      const promise = new Promise((resolve, reject) => {
+        const apiUrl = `https://api.github.com/search/users?q=${data}&per_page=1000`;
+        this.http
+          .get<any>(apiUrl)
+          .toPromise()
+          .then(res => {
+            resolve(res);
+          })
+          .catch(error => reject(error));
+      });
+      return promise;
+    }
+    searchByRepos(data: string) {
+      const promise = new Promise((resolve, reject) => {
+        const apiUrl = `https://api.github.com/search/repositories?q=${data}&per_page=1000`;
+        this.http
+          .get<any>(apiUrl)
+          .toPromise()
+          .then(res => {
+            resolve(res);
+          })
+          .catch(error => reject(error));
+      });
+      return promise;
+    }
+
+    gwtUserDetails(repourl: string): Promise<any> {
+      const promise = new Promise((resolve, reject) => {
+        const apiUrl = `${repourl}?&per_page=1000`;
         this.http
           .get<any>(apiUrl)
           .toPromise()

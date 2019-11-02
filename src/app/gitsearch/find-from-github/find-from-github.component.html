@@ -1,0 +1,175 @@
+<div class="container-fluid" *ngIf="!userdata">
+  <div class="myform">
+    <div class="image-fluid text-center pt-5 mt-5">
+      <img
+        src="https://cdn.pixabay.com/photo/2012/04/05/01/40/balloons-25737__340.png"
+        alt=""
+      />
+    </div>
+    <form class="form-inline mform" #gtform="ngForm" autocomplete="off">
+      <div class="form-group">
+        <label for="options" id="bale">Search criteria</label>
+        <select class="form-control mr-3 ml-3" id="options" #criteria>
+          <option>Users</option>
+          <option>Repositories</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input
+          id="data"
+          type="search"
+          class="form-control"
+          placeholder="Enter search string"
+          #search
+          required
+          onfocus="this.value=''"
+        />
+      </div>
+
+      <div class="form-group ml-3">
+        <button
+          class="btn btn-primary"
+          (click)="performSearch(criteria.value, search.value)"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="container-fluid p-5 mt-5" *ngIf="!repodetails">
+  <div class="row" *ngIf="repodata">
+    <div class="results p-3" *ngIf="gtusers">
+      <h3 class="lead">Returned {{ gtusers?.items.length }} Users.</h3>
+      <hr />
+    </div>
+  </div>
+  <div class="row" *ngIf="userdata">
+    <div class="col-md-3 pb-4" *ngFor="let gtUser of gtusers?.items">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card-image text-center">
+              <img src="{{ gtUser?.avatar_url }}" height="60px" id="sImage" />
+            </div>
+          </div>
+          <div class="col-md-9 p-3">
+            <div class="">
+              <div class="content">
+                <h4>
+                  <strong>{{ gtUser?.login }}</strong>
+                </h4>
+              <div class="lead">
+                  <p (click)="findRepos(gtUser?.repos_url)" class="repourl"
+                  >See Repositories</p
+                >
+              </div>
+              </div>
+              <hr />
+              <div class="card-action float-right">
+                <a href="{{ gtUser?.html_url }}" class="float-right"
+                  ><span class="badge badge badge-info">find in github</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="repodata">
+      <div class="results p-3" *ngIf="gtrepos">
+        <h3 class="lead">Returned {{ gtrepos?.items.length }} Repositories.</h3>
+        <hr />
+      </div>
+    </div>
+    <div class="row" *ngIf="repodata">
+      <div class="col-md-3" *ngFor="let repo of gtrepos?.items">
+        <div class="card mb-4">
+          <div class="mContent m-4">
+            <div class="reponame lead">
+              <strong> {{ repo?.name }}</strong>
+            </div>
+            <div class="repodesc">
+              {{ repo?.full_name }}
+            </div>
+            <hr />
+            <div class="row infos">
+              <div class="col-md-4" *ngIf="repo.language">
+                <div class="languageUsed ">
+                  <img src="assets/images/planguage.png" alt="" height="20px" />
+                  <span id="language">{{ repo?.language }}</span>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="timepassed">
+                  <img src="" alt="" height="20px" />
+                  <span id="timepassed">
+                    {{ repo?.updated_at | date}}</span
+                  >
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="go">
+                  <a href="{{ repo?.html_url }}">
+                    <span class="badge badge badge-warning float-right"
+                      >find in github</span
+                    ></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5 py-5" *ngIf="repodetails">
+    <!-- repositories -->
+ <div class="minfo" *ngIf="gtuserdetails">
+    <h4 class="lead">{{gtuserdetails[0]?.owner.login}} repositories</h4>
+    <p>Returned {{gtuserdetails.length}} repositories</p>
+    <hr>
+ </div>
+    <div class="repositories m-5">
+      <div class="row">
+
+        <!-- let x of xs -->
+        <div class="col-md-6" *ngFor="let repo of gtuserdetails">
+          <div class="card mb-4">
+            <div class="mContent m-4">
+              <div class="reponame lead">
+                {{repo?.name}}
+              </div>
+              <div class="repodesc">
+                {{repo?.full_name}}
+              </div>
+              <hr>
+              <div class="row infos">
+                <div class="col-md-3" *ngIf='repo?.language'>
+                  <div class="languageUsed ">
+                    <img src="" alt="" height="20px"> <span
+                      id="language">{{repo?.language}}</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="timepassed">
+                    <img src="" alt="" height="20px"> <span id="timepassed">updated:
+                      {{repo?.updated_at | date}}</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="go">
+                      <a href="{{repo?.html_url}}"><span class="badge badge badge-warning float-right">find in
+                        github</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
