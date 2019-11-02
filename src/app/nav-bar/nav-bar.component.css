@@ -9,9 +9,16 @@ color: blue;
 text-align: center;
   
 }
+.navbar{
+  position: fixed;
+  overflow: hidden;
+}
 li a{
   font-size:30px;
   text-decoration: none;
+}
+ul{
+  list-style-type:none;
 }
 
 .navbar{
