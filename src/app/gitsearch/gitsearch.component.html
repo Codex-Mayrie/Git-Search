@@ -4,43 +4,63 @@
       <div class="row">
         <div class="col-md-3">
           <div class="card p-4">
-            <img src="{{userdata?.avatar_url}}" alt="" id='pImage' height="200px" class='text-center pb-2'>
-            <p class="text-info">{{userdata?.login}}</p>
-            <p class="text-primary">{{userdata?.bio}}</p>
+            <img
+              src="{{ userdata?.avatar_url }}"
+              alt=""
+              id="pImage"
+              height="200px"
+              class="text-center pb-2"
+            />
+            <p class="text-info">{{ userdata?.login }}</p>
+            <p class="text-primary">{{ userdata?.bio }}</p>
             <div>
-              <span class="badge badge-pill badge-info m-2">Followers {{userdata?.followers}}</span>
-              <span class="badge badge-pill badge-info">Following {{userdata?.following}}</span>
+              <span class="badge badge-pill badge-info m-2"
+                >Followers {{ userdata?.followers }}</span
+              >
+              <span class="badge badge-pill badge-info"
+                >Following {{ userdata?.following }}</span
+              >
             </div>
           </div>
         </div>
         <div class="col-md-9">
           <div class="row">
             <div class="col-md-6" *ngFor="let repo of repos">
-                <div class="card mb-4">
-                    <div class="mContent m-4">
-                      <div class="reponame lead">
-                        {{repo?.name}}
+              <div class="card mb-4">
+                <div class="mContent m-4">
+                  <div class="reponame lead">
+                    {{ repo?.name }}
+                  </div>
+                  <div class="repodesc">
+                    {{ repo?.full_name }}
+                  </div>
+                  <hr />
+                  <div class="row infos">
+                    <div class="col-md-3" *ngIf="repo?.language">
+                      <div class="languageUsed ">
+                        <img
+                          src="assets/images/planguage.png"
+                          alt=""
+                          height="20px"
+                        />
+                        <span id="language">{{ repo?.language }}</span>
                       </div>
-                      <div class="repodesc">
-                        {{repo?.full_name}}
-                      </div>
-                      <hr>
-                      <div class="row infos">
-                        <div class="col-md-3" *ngIf='repo?.language'>
-                          <div class="languageUsed ">
-                            <img src="assets/images/planguage.png" alt="" height="20px"> <span
-                              id="language">{{repo?.language}}</span>
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="github">
-                            <a href="{{repo?.html_url}}"><span class="badge badge badge-warning float-right">Get in
-                                Github</span></a>
-                          </div>
-                        </div>
+                    </div>
+                    <div class="col-md-3">
+                      {{ repo?.created_at|dayCount }}
+                    </div>
+                    <div class="col-md-3">
+                      <div class="github">
+                        <a href="{{ repo?.html_url }}"
+                          ><span class="badge badge badge-warning float-right"
+                            >Get in Github</span
+                          ></a
+                        >
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
