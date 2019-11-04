@@ -8,7 +8,7 @@
     </div>
     <form class="form-inline mform" #gtform="ngForm" autocomplete="off">
       <div class="form-group">
-        <label for="options" id="bale">Search criteria</label>
+        <label for="options" id="searching">Search criteria</label>
         <select class="form-control mr-3 ml-3" id="options" #criteria>
           <option>Users</option>
           <option>Repositories</option>
@@ -19,7 +19,7 @@
           id="data"
           type="search"
           class="form-control"
-          placeholder="Enter search string"
+          placeholder="Enter your value"
           #search
           required
           onfocus="this.value=''"
@@ -28,7 +28,7 @@
 
       <div class="form-group ml-3">
         <button
-          class="btn btn-primary"
+          class="btn btn-info"
           (click)="performSearch(criteria.value, search.value)"
         >
           Search
@@ -46,7 +46,7 @@
   </div>
   <div class="row" *ngIf="userdata">
     <div class="col-md-3 pb-4" *ngFor="let gtUser of gtusers?.items">
-      <div class="card">
+      <div class="card-info">
         <div class="row">
           <div class="col-md-3">
             <div class="card-image text-center">
@@ -54,12 +54,12 @@
             </div>
           </div>
           <div class="col-md-9 p-3">
-            <div class="">
+            <div>
               <div class="content">
                 <h4>
                   <strong>{{ gtUser?.login }}</strong>
                 </h4>
-              <div class="lead">
+              <div class="repositories">
                   <p (click)="findRepos(gtUser?.repos_url)" class="repourl"
                   >See Repositories</p
                 >
@@ -68,7 +68,7 @@
               <hr />
               <div class="card-action float-right">
                 <a href="{{ gtUser?.html_url }}" class="float-right"
-                  ><span class="badge badge badge-info">find in github</span></a
+                  ><span class="badge badge badge-primary">Get in Github</span></a
                 >
               </div>
             </div>
@@ -100,19 +100,11 @@
                   <span id="language">{{ repo?.language }}</span>
                 </div>
               </div>
-              <div class="col-md-5">
-                <div class="timepassed">
-                  <img src="" alt="" height="20px" />
-                  <span id="timepassed">
-                    {{ repo?.updated_at | date}}</span
-                  >
-                </div>
-              </div>
               <div class="col-md-3">
                 <div class="go">
                   <a href="{{ repo?.html_url }}">
-                    <span class="badge badge badge-warning float-right"
-                      >find in github</span
+                    <span class="badge badge badge-primary float-right"
+                      >Go to github</span
                     ></a
                   >
                 </div>

@@ -25,7 +25,6 @@ export class HttpService {
           .get<ApiResponse>(apiUrl)
           .toPromise()
           .then(res => {
-            // console.log(res);
             resolve(res);
 
           })
@@ -49,7 +48,7 @@ export class HttpService {
     }
     searchByUser(data: string) {
       const promise = new Promise((resolve, reject) => {
-        const apiUrl = `https://api.github.com/search/users?q=${data}&per_page=1000`;
+        const apiUrl = `https://api.github.com/search/users?q=${data}&per_page=infinity`;
         this.http
           .get<any>(apiUrl)
           .toPromise()
@@ -62,7 +61,7 @@ export class HttpService {
     }
     searchByRepos(data: string) {
       const promise = new Promise((resolve, reject) => {
-        const apiUrl = `https://api.github.com/search/repositories?q=${data}&per_page=1000`;
+        const apiUrl = `https://api.github.com/search/repositories?q=${data}&per_page=infinity`;
         this.http
           .get<any>(apiUrl)
           .toPromise()
@@ -74,9 +73,9 @@ export class HttpService {
       return promise;
     }
 
-    gwtUserDetails(repourl: string): Promise<any> {
+    getUserDetails(repourl: string): Promise<any> {
       const promise = new Promise((resolve, reject) => {
-        const apiUrl = `${repourl}?&per_page=1000`;
+        const apiUrl = `${repourl}?&per_page=infinity`;
         this.http
           .get<any>(apiUrl)
           .toPromise()

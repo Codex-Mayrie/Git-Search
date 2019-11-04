@@ -34,7 +34,7 @@ export class FindFromGithubComponent implements OnInit {
   }
   findRepos(repoLocation: string) {
     this.repodetails = true;
-    this.httpService.gwtUserDetails(repoLocation).then(data => {
+    this.httpService.getUserDetails(repoLocation).then(data => {
       this.gtuserdetails = data;
       console.log(data);
     });
