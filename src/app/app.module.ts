@@ -11,6 +11,7 @@ import { HttpService } from './http-service';
 import { FindFromGithubComponent } from './gitsearch/find-from-github/find-from-github.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DayCountPipe } from './day-count.pipe';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
     GitSearchFormComponent,
     GitsearchComponent,
     FindFromGithubComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DayCountPipe
 
   ],
   imports: [
