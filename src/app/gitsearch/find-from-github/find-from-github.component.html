@@ -64,7 +64,7 @@
               </div>
               <hr />
               <div class="card-action float-right">
-                <a href="{{ gtUser?.html_url }}" class="float-right"
+                <a href="{{ gtUser?.html_url }}"
                   ><span class="badge badge badge-primary">Get in Github</span></a
                 >
               </div>
@@ -140,8 +140,8 @@
                 </div>
                 <div class="col-md-4">
                   <div class="timegone">
-                    <img src="" alt="" height="30px"> <span id="timegone">updated:
-                      {{repo?.updated_at | date}}</span>
+                    <img src="" height="30px"> <span id="timegone">updated:
+                      {{repo?.created_at | date}}</span>
                   </div>
                 </div>
                 <div class="col-md-3">
