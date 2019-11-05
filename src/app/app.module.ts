@@ -5,7 +5,6 @@ import {HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { GitSearchFormComponent } from './git-search-form/git-search-form.component';
 import { GitsearchComponent } from './gitsearch/gitsearch.component';
 import { HttpService } from './http-service';
 import { FindFromGithubComponent } from './gitsearch/find-from-github/find-from-github.component';
@@ -18,7 +17,6 @@ import { DayCountPipe } from './day-count.pipe';
   declarations: [
     AppComponent,
     NavBarComponent,
-    GitSearchFormComponent,
     GitsearchComponent,
     FindFromGithubComponent,
     PageNotFoundComponent,
