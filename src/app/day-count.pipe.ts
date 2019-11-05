@@ -8,7 +8,7 @@ export class DayCountPipe implements PipeTransform {
     let datetokens = value.split("-");
     let year = datetokens[0];
     let month = datetokens[1];
-    let day = datetokens[2].substring(0,2);
+    let day = datetokens[2].substring(0, 2);
 
     let today = new Date();
     let todayWithoutTime: any = new Date(
@@ -25,6 +25,8 @@ export class DayCountPipe implements PipeTransform {
 
     let differenceInSeconds = difference * 0.001;
 
-    return differenceInSeconds / secondsInADay + " Days ago";
+    let days = Math.floor(differenceInSeconds / secondsInADay);
+
+    return days + " Days ago";
   }
 }
