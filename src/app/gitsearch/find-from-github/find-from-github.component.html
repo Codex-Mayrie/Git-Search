@@ -15,7 +15,6 @@
       </div>
       <div class="form-group">
         <input
-          id="data"
           type="search"
           class="form-control"
           placeholder="Enter your option"
@@ -38,7 +37,7 @@
 <div class="container-fluid p-5 mt-5" *ngIf="!repodetails">
   <div class="row" *ngIf="repodata">
     <div class="results p-3" *ngIf="gtusers">
-      <h3 class="lead">Returned {{ gtusers?.items.length }} Users.</h3>
+      <h2 class="lead">Returned {{ gtusers?.items.length }} Users.</h2>
       <hr />
     </div>
   </div>
@@ -54,9 +53,9 @@
           <div class="col-md-9 p-3">
             <div>
               <div class="content">
-                <h4>
+                <h3>
                   <strong>{{ gtUser?.login }}</strong>
-                </h4>
+                </h3>
               <div class="repositories">
                   <p (click)="findRepos(gtUser?.repos_url)" class="repourl"
                   >See Repositories</p
@@ -76,7 +75,7 @@
     </div>
     <div class="row" *ngIf="repodata">
       <div class="results p-3" *ngIf="gtrepos">
-        <h3 class="lead">Returned {{ gtrepos?.items.length }} Repositories.</h3>
+        <h2 class="lead">Returned {{ gtrepos?.items.length }} Repositories.</h2>
         <hr />
       </div>
     </div>
@@ -94,7 +93,7 @@
             <div class="row infos">
               <div class="col-md-4" *ngIf="repo.language">
                 <div class="languageUsed ">
-                  <img src="assets/images/planguage.png" alt="" height="20px" />
+                  <img src="assets/images/planguage.png" height="20px" />
                   <span id="language">{{ repo?.language }}</span>
                 </div>
               </div>
@@ -116,7 +115,7 @@
 </div>
 <div class="container mt-5 py-5" *ngIf="repodetails">
  <div class="minfo" *ngIf="gtuserdetails">
-    <h4 class="lead">{{gtuserdetails[0]?.owner.login}} repositories</h4>
+    <h3 class="lead">{{gtuserdetails[0]?.owner.login}} repositories</h3>
     <p>Returned {{gtuserdetails.length}} repositories</p>
     <hr>
  </div>
@@ -135,20 +134,19 @@
               <div class="row infos">
                 <div class="col-md-3" *ngIf='repo?.language'>
                   <div class="languageUsed ">
-                    <img src="" alt="" height="20px"> <span
+                    <img src="" height="20px"> <span
                       id="language">{{repo?.language}}</span>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="timepassed">
-                    <img src="" alt="" height="20px"> <span id="timepassed">updated:
+                  <div class="timegone">
+                    <img src="" alt="" height="30px"> <span id="timegone">updated:
                       {{repo?.updated_at | date}}</span>
                   </div>
                 </div>
                 <div class="col-md-3">
-                  <div class="go">
-                      <a href="{{repo?.html_url}}"><span class="badge badge badge-warning float-right">find in
-                        github</span></a>
+                  <div class="get">
+                      <a href="{{repo?.html_url}}"><span class="badge badge badge-info float-right">See in github</span></a>
                   </div>
                 </div>
               </div>
