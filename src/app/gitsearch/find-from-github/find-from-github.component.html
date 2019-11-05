@@ -117,7 +117,6 @@
   </div>
 </div>
 <div class="container mt-5 py-5" *ngIf="repodetails">
-    <!-- repositories -->
  <div class="minfo" *ngIf="gtuserdetails">
     <h4 class="lead">{{gtuserdetails[0]?.owner.login}} repositories</h4>
     <p>Returned {{gtuserdetails.length}} repositories</p>
@@ -125,12 +124,10 @@
  </div>
     <div class="repositories m-5">
       <div class="row">
-
-        <!-- let x of xs -->
         <div class="col-md-6" *ngFor="let repo of gtuserdetails">
           <div class="card mb-4">
             <div class="mContent m-4">
-              <div class="reponame lead">
+              <div class="reponame info">
                 {{repo?.name}}
               </div>
               <div class="repodesc">
