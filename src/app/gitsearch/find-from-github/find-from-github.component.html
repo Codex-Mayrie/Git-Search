@@ -3,10 +3,9 @@
     <div class="image-fluid text-center pt-5 mt-5">
       <img
         src="https://cdn.pixabay.com/photo/2012/04/05/01/40/balloons-25737__340.png"
-        alt=""
       />
     </div>
-    <form class="form-inline mform" #gtform="ngForm" autocomplete="off">
+    <form class="form-inline mform" #gtform="ngForm">
       <div class="form-group">
         <label for="options" id="searching">Search criteria</label>
         <select class="form-control mr-3 ml-3" id="options" #criteria>
@@ -21,8 +20,7 @@
           class="form-control"
           placeholder="Enter your option"
           #search
-          required
-          onfocus="this.value=''"
+          required="this.value=''"
         />
       </div>
 
@@ -50,7 +48,7 @@
         <div class="row">
           <div class="col-md-3">
             <div class="card-image text-center">
-              <img src="{{ gtUser?.avatar_url }}" height="60px" id="sImage" />
+              <img src="{{ gtUser?.avatar_url }}" height="60px" />
             </div>
           </div>
           <div class="col-md-9 p-3">
